@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Rushi Hospital | Care. Elevated.</title>
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-color: #ffffff;
+      --card-bg: #f5f5f7;
+      --card-hover: #e8e8ed;
+      --text-primary: #1d1d1f;
+      --text-secondary: #86868b;
+      --accent-color: #0066cc;
+      --accent-hover: #004499;
+      --whatsapp-green: #25D366;
+      --whatsapp-hover: #1eaa52;
+      --glass-bg: rgba(255, 255, 255, 0.88);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      font-family: var(--font-family);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.47059;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION BAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 52px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 980px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-btn {
+      background-color: var(--text-primary);
+      color: #ffffff !important;
+      padding: 6px 14px;
+      border-radius: 980px;
+      font-weight: 500;
+      font-size: 12px !important;
+    }
+
+    .nav-btn:hover {
+      background-color: #333336;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding-top: 130px;
+      padding-bottom: 50px;
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .hero-eyebrow {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: 52px;
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 21px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 620px;
+      margin: 0 auto 30px auto;
+    }
+
+    /* APPOINTMENT FORM SECTION */
+    .booking-section {
+      max-width: 680px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+
+    .form-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    .form-header {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .form-title {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .form-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: inherit;
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--whatsapp-green);
+      color: #ffffff;
+      padding: 16px;
+      border: none;
+      border-radius: 980px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--whatsapp-hover);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+
+    /* BENTO GRID LAYOUT */
+    .section-grid {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 18px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border-color);
+    }
+
+    .card-full {
+      grid-column: span 2;
+    }
+
+    .card-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-heading {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.47;
+    }
+
+    .stat-number {
+      font-size: 52px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 30px 20px;
+      max-width: 980px;
+      margin: 60px auto 0 auto;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* MOBILE SPECIFIC ADJUSTMENTS */
+    @media (max-width: 734px) {
+      .nav-links .desktop-link {
+        display: none;
+      }
+      .nav-logo {
+        font-size: 15px;
+      }
+      .hero {
+        padding-top: 100px;
+      }
+      .hero-title {
+        font-size: 34px;
+      }
+      .hero-subtitle {
+        font-size: 17px;
+      }
+      .form-card {
+        padding: 24px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-full {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">Sai Rushi Hospital</div>
+      <div class="nav-links">
+        <a href="#overview" class="desktop-link">Overview</a>
+        <a href="#location" class="desktop-link">Location</a>
+        <a href="#book" class="nav-btn">Book Appointment</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="overview">
+    <div class="hero-eyebrow">General Hospital & Healthcare</div>
+    <h1 class="hero-title">Sai Rushi Hospital</h1>
+    <p class="hero-subtitle">సాయి రుషి హాస్పిటల్ — Precision healthcare and compassionate service in Keesara.</p>
+  </section>
+
+  <!-- Appointment Booking Form -->
+  <section class="booking-section" id="book">
+    <div class="form-card">
+      <div class="form-header">
+        <h2 class="form-title">Book an Appointment</h2>
+        <p class="form-desc">Fill in your details below to schedule your consultation via WhatsApp.</p>
+      </div>
+      
+      <form id="appointmentForm" onsubmit="sendToWhatsApp(event)">
+        <div class="form-group">
+          <label for="patientName">Patient Full Name *</label>
+          <input type="text" id="patientName" class="form-control" placeholder="e.g. Ramesh Kumar" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number *</label>
+            <input type="tel" id="phoneNumber" class="form-control" placeholder="e.g. 9876543210" required>
+          </div>
+          <div class="form-group">
+            <label for="prefDate">Preferred Date *</label>
+            <input type="date" id="prefDate" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reason">Reason for Visit / Symptoms</label>
+          <textarea id="reason" class="form-control" rows="3" placeholder="e.g. General checkup, Fever, Consultation..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          Send Appointment Request via WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Bento Grid Features -->
+  <section class="section-grid">
+    
+    <!-- Rating Card -->
+    <div class="card">
+      <div>
+        <div class="card-label">Patient Experience</div>
+        <div class="stat-number">5.0 ★</div>
+      </div>
+      <p class="card-desc">Rated 5.0 Stars by our community for exceptional medical care and support.</p>
+    </div>
+
+    <!-- Hours Card -->
+    <div class="card">
+      <div>
+        <div class="card-label">Operating Hours</div>
+        <div class="card-heading">Open Daily</div>
+      </div>
+      <p class="card-desc">Consultations available until <strong>9:00 PM</strong> every day.</p>
+    </div>
+
+    <!-- Comprehensive Services Card -->
+    <div class="card card-full" id="location">
+      <div class="card-label">Location & Contact</div>
+      <div class="card-heading">Sai Rushi Hospital, Keesara</div>
+      <p class="card-desc">Main Road, Keesara, Hyderabad, Secunderabad, Telangana 501303<br>Direct Phone: <strong>084668 20628</strong></p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>© 2026 Sai Rushi Hospital. All rights reserved.</div>
+  </footer>
+
+  <!-- JavaScript Form Integration -->
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+
+      // Read form inputs
+      const name = document.getElementById('patientName').value.trim();
+      const phone = document.getElementById('phoneNumber').value.trim();
+      const date = document.getElementById('prefDate').value;
+      const reason = document.getElementById('reason').value.trim();
+
+      // Format date
+      const formattedDate = date ? date : 'Not specified';
+
+      // Build WhatsApp message
+      const textMessage = `*New Appointment Request - Sai Rushi Hospital*%0A%0A` +
+        `*Name:* ${encodeURIComponent(name)}%0A` +
+        `*Phone:* ${encodeURIComponent(phone)}%0A` +
+        `*Preferred Date:* ${encodeURIComponent(formattedDate)}%0A` +
+        `*Reason:* ${encodeURIComponent(reason || 'General Consultation')}`;
+
+      // Target WhatsApp Number
+      const whatsappNumber = "918466820628";
+
+      // Open WhatsApp
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${textMessage}`;
+      window.open(whatsappURL, '_blank');
+    }
+  </script>
+
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7bee62098162470c96028d2fb784a1ce"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
